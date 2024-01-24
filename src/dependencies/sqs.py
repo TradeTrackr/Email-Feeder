@@ -22,6 +22,7 @@ class SqsPoller(object):
                                       aws_secret_access_key=config.AWS_SECRET_KEY)
 
     def __open_sqs_connection(self):
+        print(config.SQS_QUEUE_NAME)
         self.queue = self.sqs.get_queue_by_name(
             QueueName=config.SQS_QUEUE_NAME)
 

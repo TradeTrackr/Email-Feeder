@@ -1,12 +1,13 @@
 # this code must use environment variables for original config as we will be changing the application config
 
 import os
-from src import app
+from src import config
 from flask_mail import Mail
 from flask import current_app
 from flask_mail import Message
 from src.exceptions import ApplicationError
 # from src.sql import Sql
+
 
 def get_smtp_config(email):
 	mail = Mail()
@@ -14,7 +15,7 @@ def get_smtp_config(email):
 	# print(results)
 	# if len(results) == 1:
 	# 	email_account = results[0]
-	# 	app.config.update(dict(
+	# 	config.update(dict(
 	# 		MAIL_SERVER = email_account.server,
 	# 		MAIL_PORT = email_account.port,
 	# 		MAIL_USE_TLS = email_account.tls,
@@ -23,7 +24,7 @@ def get_smtp_config(email):
 	# 		MAIL_PASSWORD = email_account.password,
 	# 	))
 	# else:
-	app.config.update(dict(
+	config.update(dict(
 		MAIL_SERVER = os.environ['MAIL_SERVER'],
 		MAIL_PORT = os.environ['MAIL_PORT'],
 		MAIL_USE_TLS = False,
