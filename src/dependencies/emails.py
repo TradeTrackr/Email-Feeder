@@ -16,7 +16,6 @@ class EmailAPI:
         response = requests.request("POST", url, data=json.dumps(data), headers=self.headers)
         return json.loads(response.text)
 
-    def new_email(self, data, template):
+    def new_email(self, data):
         endpoint = "send_email"
-        data['template'] = template
         return self._make_post_request(endpoint, data)

@@ -10,4 +10,4 @@ class NewDocSqs(object):
         print("ok finished now", flush=True)
 
 def send_email_initial(body):
-    EmailAPI.new_email(body, 'enquiry')
+    EmailAPI().new_email(body)
